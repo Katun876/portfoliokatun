@@ -136,6 +136,23 @@
     if (history.replaceState) history.replaceState(null, '', location.pathname + location.search);
   }));
 
+  /* ---------- About video: play only when visible ---------- */
+  const vids = $$('.about-video, .hero__video');
+  const calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (calm) vids.forEach((v) => { v.removeAttribute('autoplay'); v.pause(); });
+  if (vids.length && !calm && 'IntersectionObserver' in window) {
+    const vo = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        const v = en.target;
+        if (en.isIntersecting && v.offsetWidth) {
+          if (v.preload === 'none') v.preload = 'auto';
+          const pr = v.play(); if (pr && pr.catch) pr.catch(() => {});
+        } else v.pause();
+      });
+    }, { threshold: 0.2 });
+    vids.forEach((v) => vo.observe(v));
+  }
+
   /* ---------- Reveal on scroll ---------- */
   const reveals = $$('.reveal');
   if ('IntersectionObserver' in window) {

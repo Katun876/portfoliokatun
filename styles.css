@@ -148,6 +148,8 @@ ul, ol { list-style: none; }
 .hero__art { margin: 32px auto 0; width: 100%; height: 797px; display: flex; justify-content: center; align-items: flex-end; }
 .hero__art picture { height: 100%; display: flex; justify-content: center; }
 .hero__art img { height: 100%; width: auto; object-fit: contain; object-position: bottom center; }
+/* видео снято на белом фоне: multiply растворяет белый в цвете плитки */
+.hero__video { display: block; height: 100%; width: auto; max-width: 100%; aspect-ratio: 2000 / 1559; object-fit: contain; object-position: bottom center; mix-blend-mode: multiply; background: transparent; }
 
 /* Stats ----------------------------------------------------------------- */
 .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); margin-top: var(--gap); }
@@ -214,7 +216,8 @@ ul, ol { list-style: none; }
 /* About ----------------------------------------------------------------- */
 .about-grid { display: grid; grid-template-columns: 564px 1fr; gap: var(--gap); }
 .about-art { position: relative; min-height: 520px; border-radius: var(--radius); overflow: hidden; background: var(--panel); }
-.about-art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.about-art img, .about-art video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.about-art { background: #fdfdfd; }
 .about-art figcaption { position: absolute; left: 20px; bottom: 20px; display: flex; flex-wrap: wrap; gap: 8px; }
 .about-art figcaption span { padding: 8px 14px; border-radius: 999px; background: var(--white); font-size: 13px; line-height: 18px; font-weight: 500; }
 .profile-card { padding: 40px; border-radius: var(--radius); background: var(--panel); display: flex; flex-direction: column; justify-content: space-between; gap: 32px; }
@@ -358,6 +361,7 @@ ul, ol { list-style: none; }
   .hero__art { margin-top: 24px; height: auto; aspect-ratio: auto; margin-inline: -20px; width: calc(100% + 40px); }
   .hero__art picture { height: auto; width: 100%; }
   .hero__art img { width: 100%; height: auto; }
+  .hero__video { width: 100%; height: auto; }
 
   /* stats */
   .stats { grid-template-columns: 1fr; }
@@ -389,7 +393,7 @@ ul, ol { list-style: none; }
   .about-art { display: none; }
   .profile-card { padding: 22px; gap: 24px; }
   .profile-card h3 { font-size: 20px; line-height: 26px; }
-  .profile-card__art { display: block; width: 100%; aspect-ratio: 318 / 296; object-fit: cover; border-radius: 20px; }
+  .profile-card__art { display: block; width: 100%; height: auto; aspect-ratio: 318 / 296; object-fit: cover; border-radius: 20px; background: #fdfdfd; }
   .facts dt { font-size: 14px; }
   .facts dd { font-size: 16px; }
 

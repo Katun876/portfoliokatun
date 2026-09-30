@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Обо мне — Екатерина, UX/UI-дизайнер</title>
+  <meta name="description" content="Екатерина — UX/UI-дизайнер. Обо мне и как я работаю.">
+  <link rel="stylesheet" href="styles.css?v=8">
+  <style>
+    body { padding-block: 64px; }
+    .about { margin-top: 0; }
+
+    /* ---------- Fireworks ---------- */
+    html, body { overflow-x: clip; }
+    .fw-stage { position: relative; --pad: 180px; }
+    .fw-stage--desk { display: grid; }
+    .fw-stage--desk .about-art { height: 100%; }
+    .fw-stage--mob { display: none; --pad: 70px; }
+    .fw-host { cursor: pointer; }
+    .fw-host > img { transform-origin: var(--ox, 50%) var(--oy, 51%); will-change: transform; }
+    .fw-host.is-pop > img { animation: fw-pop .55s cubic-bezier(.2, .9, .3, 1.3); }
+    .fw-canvas { position: absolute; left: calc(var(--pad) * -1); top: calc(var(--pad) * -1); width: calc(100% + var(--pad) * 2); height: calc(100% + var(--pad) * 2); pointer-events: none; z-index: 5; }
+    .about-art figcaption { z-index: 2; }
+
+    @keyframes fw-pop {
+      0% { transform: scale(1); filter: saturate(1); }
+      35% { transform: scale(1.035); filter: saturate(1.25) brightness(1.04); }
+      100% { transform: scale(1); filter: saturate(1); }
+    }
+
+    @media (max-width: 700px) {
+      body { padding-block: 24px; }
+      .fw-stage--desk { display: none; }
+      .fw-stage--mob { display: block; }
+      .profile-card__art-wrap { display: block; border-radius: 20px; overflow: hidden; aspect-ratio: 318 / 296; }
+      .profile-card__art-wrap .profile-card__art { width: 100%; height: 100%; border-radius: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .fw-host.is-pop > img { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="about shell section" id="about" aria-labelledby="about-title">
+      <div class="section-heading">
+        <div><p class="label">02 · Обо мне</p><h2 id="about-title">Обо мне <span class="muted">и как я работаю</span></h2></div>
+      </div>
+      <div class="about-grid">
+        <div class="fw-stage fw-stage--desk" data-fw>
+          <figure class="about-art fw-host">
+            <img src="assets/about.webp" width="1128" height="1040" alt="Иллюстрация «UX/UI» в брызгах краски">
+            <figcaption><span>Product</span><span>Research</span><span>Creativity</span></figcaption>
+          </figure>
+          <canvas class="fw-canvas" aria-hidden="true"></canvas>
+        </div>
+        <article class="profile-card">
+          <div class="profile-card__top">
+            <p class="label">Профиль</p>
+            <h3>UX/UI-дизайнер с 3+ годами опыта. <span class="muted">Веду интерфейс через весь цикл: исследование, прототипы, финальные макеты и&nbsp;итерации по&nbsp;продуктовым метрикам после запуска.</span></h3>
+            <div class="fw-stage fw-stage--mob" data-fw>
+              <div class="profile-card__art-wrap fw-host">
+                <img class="profile-card__art" src="assets/about-mobile.webp" width="954" height="888" alt="Иллюстрация «UX/UI» в брызгах краски">
+              </div>
+              <canvas class="fw-canvas" aria-hidden="true"></canvas>
+            </div>
+            <p class="profile-card__text">Собираю и развиваю дизайн-системы, проектирую адаптивные сайты и&nbsp;веб-сервисы, руковожу командой дизайнеров. Сильная сторона — скорость без потери качества: быстро перехожу от&nbsp;гипотезы к&nbsp;проверенному решению и&nbsp;довожу его до&nbsp;продакшена.</p>
+          </div>
+          <dl class="facts">
+            <div><dt>Подход</dt><dd>Исследование → прототип → тест → метрики</dd></div>
+            <div><dt>Сильные стороны</dt><dd>Дизайн-системы, адаптив, запуски</dd></div>
+            <div><dt>Формат</dt><dd>Full-time или проектная работа</dd></div>
+          </dl>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script>
+  (() => {
+    'use strict';
+    // Центр надписи «UX/UI» внутри картинки (доли ширины/высоты исходника)
+    const ORIGIN = { x: 0.5, y: 0.51, spreadX: 0.24, spreadY: 0.09 };
+    const PALETTE = ['#ff2d95', '#ff5a1f', '#ff9f1c', '#ffd23f', '#8a3cff', '#4b17c9'];
+    const OUTLINE = '#1c0b4a';
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const rand = (a, b) => a + Math.random() * (b - a);
+    const pick = (arr) => arr[(Math.random() * arr.length) | 0];
+
+    function Fireworks(stage) {
+      const host = stage.querySelector('.fw-host');
+      const img = host.querySelector('img');
+      const canvas = stage.querySelector('canvas');
+      const ctx = canvas.getContext('2d');
+      let W = 0, H = 0, P = 0, CW = 0, CH = 0, visible = false, raf = 0, timer = 0;
+      const rockets = [], sparks = [];
+
+      // точка картинки → координаты холста (object-fit: cover + отступ холста)
+      const map = (fx, fy) => {
+        const iw = img.naturalWidth || 1, ih = img.naturalHeight || 1;
+        const s = Math.max(W / iw, H / ih);
+        return { x: P + (W - iw * s) / 2 + fx * iw * s, y: P + (H - ih * s) / 2 + fy * ih * s };
+      };
+
+      const resize = () => {
+        W = host.offsetWidth; H = host.offsetHeight;
+        P = parseFloat(getComputedStyle(stage).getPropertyValue('--pad')) || 0;
+        CW = W + P * 2; CH = H + P * 2;
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = Math.round(CW * dpr); canvas.height = Math.round(CH * dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        const o = map(ORIGIN.x, ORIGIN.y);
+        host.style.setProperty('--ox', `${((o.x - P) / W) * 100}%`);
+        host.style.setProperty('--oy', `${((o.y - P) / H) * 100}%`);
+      };
+
+      const pop = () => { host.classList.remove('is-pop'); void host.offsetWidth; host.classList.add('is-pop'); };
+
+      const launch = (target) => {
+        if (!W) return;
+        const st = map(ORIGIN.x + rand(-ORIGIN.spreadX, ORIGIN.spreadX), ORIGIN.y + rand(-ORIGIN.spreadY, ORIGIN.spreadY));
+        let tx, ty;
+        if (target) { tx = target.x; ty = target.y; }
+        else {
+          const m = Math.min(W, H);
+          const ang = Math.random() < 0.75 ? rand(-Math.PI * 0.97, -Math.PI * 0.03) : rand(-0.4, 0.4) + (Math.random() < 0.5 ? 0 : Math.PI);
+          const dist = rand(0.35, 0.72) * m;
+          tx = Math.max(40, Math.min(CW - 40, st.x + Math.cos(ang) * dist));
+          ty = Math.max(40, Math.min(CH - 40, st.y + Math.sin(ang) * dist));
+        }
+        rockets.push({ x: st.x, y: st.y, sx: st.x, sy: st.y, tx, ty, t: 0, dur: rand(30, 42), color: pick(PALETTE), trail: [] });
+        pop(); kick();
+      };
+
+      const explode = (x, y, base) => {
+        const n = rand(80, 120) | 0;
+        const second = pick(PALETTE);
+        const power = rand(3.4, 5.2) * Math.max(0.6, Math.min(1.15, Math.min(W, H) / 520));
+        const ring = Math.random() < 0.3;
+        for (let i = 0; i < n; i++) {
+          const a = (i / n) * Math.PI * 2 + rand(-0.06, 0.06);
+          const v = ring ? power * rand(0.95, 1.05) : power * Math.sqrt(Math.random()) * 1.2;
+          sparks.push({ x, y, vx: Math.cos(a) * v, vy: Math.sin(a) * v, life: 1, decay: rand(0.011, 0.02),
+            color: Math.random() < 0.7 ? base : second, size: rand(2.2, 3.8), glitter: Math.random() < 0.3 });
+        }
+        sparks.push({ x, y, vx: 0, vy: 0, life: 1, decay: 0.07, size: 30, flash: true });
+      };
+
+      const line = (x0, y0, x1, y1, w, c, a) => {
+        ctx.globalAlpha = a; ctx.strokeStyle = c; ctx.lineWidth = w;
+        ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.stroke();
+      };
+
+      const step = () => {
+        ctx.clearRect(0, 0, CW, CH);
+        ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+
+        for (let i = rockets.length - 1; i >= 0; i--) {
+          const r = rockets[i];
+          r.t++;
+          const k = r.t / r.dur, e = 1 - Math.pow(1 - k, 3);
+          r.x = r.sx + (r.tx - r.sx) * e;
+          r.y = r.sy + (r.ty - r.sy) * e - Math.sin(k * Math.PI) * 16;
+          r.trail.push({ x: r.x, y: r.y }); if (r.trail.length > 14) r.trail.shift();
+          ctx.beginPath(); r.trail.forEach((p, j) => (j ? ctx.lineTo(p.x, p.y) : ctx.moveTo(p.x, p.y)));
+          ctx.globalAlpha = 0.7; ctx.strokeStyle = OUTLINE; ctx.lineWidth = 6.5; ctx.stroke();
+          ctx.globalAlpha = 1; ctx.strokeStyle = r.color; ctx.lineWidth = 3.6; ctx.stroke();
+          ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(r.x, r.y, 3.4, 0, Math.PI * 2); ctx.fill();
+          if (r.t >= r.dur) { explode(r.x, r.y, r.color); rockets.splice(i, 1); }
+        }
+
+        for (let i = sparks.length - 1; i >= 0; i--) {
+          const s = sparks[i];
+          s.vx *= 0.962; s.vy = s.vy * 0.962 + 0.05;
+          s.x += s.vx; s.y += s.vy; s.life -= s.decay;
+          if (s.life <= 0) { sparks.splice(i, 1); continue; }
+          if (s.flash) {
+            const rr = s.size * (2 - s.life);
+            const g = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, rr);
+            g.addColorStop(0, `rgba(255,255,255,${s.life})`); g.addColorStop(1, 'rgba(255,255,255,0)');
+            ctx.globalAlpha = 1; ctx.fillStyle = g; ctx.beginPath(); ctx.arc(s.x, s.y, rr, 0, Math.PI * 2); ctx.fill();
+            continue;
+          }
+          // гаснут, уменьшаясь, — цвет остаётся сочным до конца
+          const a = Math.min(1, s.life * 2.2) * (s.glitter ? 0.5 + 0.5 * Math.abs(Math.sin(s.life * 42)) : 1);
+          const w = s.size * (0.35 + 0.65 * s.life);
+          const tail = 3 + s.size;
+          const x0 = s.x - s.vx * tail, y0 = s.y - s.vy * tail;
+          line(x0, y0, s.x, s.y, w + 2.2, OUTLINE, a * 0.75);
+          line(x0, y0, s.x, s.y, w, s.color, a);
+          if (s.life > 0.35) { ctx.globalAlpha = a; ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(s.x, s.y, w * 0.42, 0, Math.PI * 2); ctx.fill(); }
+        }
+        ctx.globalAlpha = 1;
+        if (rockets.length || sparks.length) raf = requestAnimationFrame(step);
+        else { raf = 0; ctx.clearRect(0, 0, CW, CH); }
+      };
+      const kick = () => { if (!raf) raf = requestAnimationFrame(step); };
+
+      const loop = () => {
+        clearTimeout(timer);
+        if (!visible || document.hidden) return;
+        const volley = Math.random() < 0.5 ? 2 : 1;
+        for (let i = 0; i < volley; i++) setTimeout(launch, i * 200);
+        timer = setTimeout(loop, rand(850, 1400));
+      };
+
+      host.addEventListener('click', (e) => {
+        const r = host.getBoundingClientRect();
+        launch({ x: P + e.clientX - r.left, y: P + e.clientY - r.top });
+        setTimeout(launch, 140); setTimeout(launch, 300);
+      });
+
+      const init = () => {
+        resize();
+        new ResizeObserver(resize).observe(host);
+        if (reduce) return; // «уменьшить движение»: салют только по клику
+        new IntersectionObserver((en) => {
+          const was = visible;
+          visible = en[0].isIntersecting && host.offsetWidth > 0;
+          if (visible && !was) { launch(); setTimeout(launch, 220); timer = setTimeout(loop, 800); }
+          if (!visible) clearTimeout(timer);
+        }, { threshold: 0.3 }).observe(host);
+        document.addEventListener('visibilitychange', () => { if (!document.hidden) loop(); });
+      };
+      if (img.complete && img.naturalWidth) init(); else img.addEventListener('load', init, { once: true });
+    }
+
+    document.querySelectorAll('[data-fw]').forEach((s) => new Fireworks(s));
+  })();
+  </script>
+</body>
+</html>
