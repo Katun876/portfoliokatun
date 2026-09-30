@@ -123,21 +123,10 @@
     update();
   }));
 
-  /* ---------- Lightbox ---------- */
-  const dialog = $('#lightbox');
-  const dImg = $('img', dialog);
-  $$('.project__open', track).forEach((btn) => btn.addEventListener('click', (e) => {
-    if (track.dataset.justDragged) { e.preventDefault(); return; }
-    const title = btn.querySelector('b')?.textContent || 'Проект';
-    dImg.src = btn.dataset.src;
-    dImg.alt = btn.querySelector('.sr-only')?.textContent.trim() || title;
-    const cta = $('.lightbox__cta', dialog);
-    cta.href = `mailto:katun876@gmail.com?subject=${encodeURIComponent('Кейс: ' + title)}`;
-    if (typeof dialog.showModal === 'function') dialog.showModal();
-    else window.open(btn.dataset.src, '_blank');
+  /* ---------- Card links: ignore click right after a drag ---------- */
+  $$('.project__open', track).forEach((a) => a.addEventListener('click', (e) => {
+    if (track.dataset.justDragged) e.preventDefault();
   }));
-  $('.lightbox__close', dialog).addEventListener('click', () => dialog.close());
-  dialog.addEventListener('click', (e) => { if (e.target === dialog) dialog.close(); });
 
   /* ---------- Reveal on scroll ---------- */
   const reveals = $$('.reveal');
