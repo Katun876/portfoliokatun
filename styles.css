@@ -198,6 +198,10 @@ ul, ol { list-style: none; }
 .project--more__text { font-size: 32px; line-height: 38px; font-weight: 500; letter-spacing: -.03em; }
 .project--more__text span { color: rgba(255, 255, 255, .5); }
 .project--more .button { align-self: flex-start; }
+.project--more__cta { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; }
+.project--more__tg { display: flex; flex-direction: column; gap: 4px; color: var(--white); font-size: 24px; line-height: 1.2; font-weight: 500; letter-spacing: -.02em; }
+.project--more__tg small { font-family: var(--mono, "IBM Plex Mono", monospace); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: rgba(255, 255, 255, .5); }
+.project--more__tg:hover { text-decoration: underline; text-underline-offset: 4px; }
 
 .track-footer { display: flex; align-items: center; gap: 24px; margin-top: 24px; }
 .progress { flex: 1; height: 4px; border-radius: 2px; background: var(--panel-2); overflow: hidden; }
@@ -375,6 +379,8 @@ ul, ol { list-style: none; }
   .project:hover { transform: none; box-shadow: none; }
   .project--more__inner { padding: 22px; }
   .project--more__text { font-size: 24px; line-height: 29px; }
+  .project--more__tg { font-size: 20px; }
+  .project--more__cta { gap: 14px; }
   .track-footer { flex-direction: column; align-items: stretch; gap: 16px; margin-top: 16px; }
   .progress { flex: none; width: 100%; }
   .filters { display: none; }

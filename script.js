@@ -128,6 +128,14 @@
     if (track.dataset.justDragged) e.preventDefault();
   }));
 
+  /* ---------- Back to top ---------- */
+  $$('a[href="#top"]').forEach((a) => a.addEventListener('click', (e) => {
+    e.preventDefault();
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+    if (history.replaceState) history.replaceState(null, '', location.pathname + location.search);
+  }));
+
   /* ---------- Reveal on scroll ---------- */
   const reveals = $$('.reveal');
   if ('IntersectionObserver' in window) {
