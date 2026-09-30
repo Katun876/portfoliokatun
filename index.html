@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Портфолио Екатерины — UX/UI-дизайнера">
+  <title>Екатерина — UX/UI-дизайнер</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23111111'/%3E%3Cpath d='M32 10l5.5 16.5L54 32l-16.5 5.5L32 54l-5.5-16.5L10 32l16.5-5.5L32 10z' fill='%23F5FF5C'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header shell">
+    <a class="identity" href="#top" aria-label="В начало страницы">
+      <span class="identity__mark">✦</span>
+      <span><b>Екатерина</b><small>UX/UI-дизайнер</small></span>
+    </a>
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="#works">Работы</a><a href="#about">Обо мне</a><a href="#experience">Опыт</a><a href="#contacts">Контакты</a>
+    </nav>
+    <a class="availability" href="mailto:katun876@gmail.com">ϟ&nbsp; Открыта к проектам</a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav">Меню&nbsp; ☰</button>
+    <div class="mobile-nav" id="mobile-nav">
+      <a href="#works">Работы</a><a href="#about">Обо мне</a><a href="#experience">Опыт</a><a href="#contacts">Контакты</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="eyebrow"><span>⊹</span> Привет, я Катя · UX/UI-дизайнер</div>
+      <h1>Люблю ясную логику, живую графику<br class="desktop-only"> и быстрые итерации. <span>Работаю системно<br class="desktop-only"> — и довожу идеи до результата.</span></h1>
+      <div class="hero__actions">
+        <a class="button button--dark" href="#works">Смотреть работы ↓</a>
+        <a class="button button--light cv-link" href="mailto:katun876@gmail.com?subject=Запрос%20CV">Скачать CV</a>
+        <span class="hero__line"></span>
+        <a class="hero__email" href="mailto:katun876@gmail.com">katun876@gmail.com</a>
+      </div>
+      <div class="hero__art"><picture><source media="(max-width: 700px)" srcset="assets/hero-mobile.png"><img src="assets/hero.png" alt="Яркая иллюстрация дизайнера за ноутбуком"></picture></div>
+    </section>
+
+    <section class="stats shell" aria-label="Опыт в цифрах">
+      <article><strong>3+</strong><p>года в продуктовом UX/UI — полный цикл от идеи до итераций после релиза</p></article>
+      <article><strong>30+</strong><p>проектов: мобильные приложения, веб-сервисы, лендинги и конференции</p></article>
+      <article><strong>10+</strong><p>в бизнесе, маркетинге и дизайне: от собственного бренда до продуктовой команды</p></article>
+    </section>
+
+    <section class="works shell section" id="works">
+      <div class="section-heading">
+        <div><small>01 · Работы</small><h2>Проекты, <span>которыми горжусь</span></h2></div>
+        <div class="carousel-nav"><span><b id="current-slide">01</b> / 08</span><button id="prev" aria-label="Предыдущая работа">←</button><button id="next" aria-label="Следующая работа">→</button></div>
+      </div>
+      <div class="project-track" id="project-track" tabindex="0">
+        <article class="project project--ai">
+          <div class="project__meta"><span>Mobile · AI</span><b>↗</b></div><h3>AI Studio</h3>
+          <p>Нейросеть превращает фото в видео. Тёмный интерфейс, где главное — контент.</p>
+          <img src="assets/project-ai.png" alt="Экраны мобильного приложения AI Studio">
+        </article>
+        <article class="project project--cat">
+          <div class="project__meta"><span>E-commerce · 8 страниц</span><b>↗</b></div><h3>Cat House</h3>
+          <p>Домики-виллы для кошек. Тёплый каталог, где товар продаёт атмосфера.</p>
+          <img src="assets/project-cat.png" alt="Макет интернет-магазина Cat House">
+        </article>
+        <article class="project project--chawo">
+          <div class="project__meta"><span>Соцсеть · 4 концепта</span><b>↗</b></div><h3>ChaWo</h3>
+          <p>Лента соцсети в двух стилях — Glass и Editorial, светлая и тёмная.</p>
+          <div class="phones"><img src="assets/project-chawo-a.png" alt="Светлый экран ChaWo"><img src="assets/project-chawo-b.png" alt="Тёмный экран ChaWo"></div>
+        </article>
+        <article class="project project--camp"><div class="project__meta"><span>Лендинг · 2025</span><b>↗</b></div><h3>BigTech Camp</h3><p>Карьерный лагерь для тех, кто хочет войти в большую технологическую компанию.</p><img class="project-visual project-visual--bigtech" src="assets/project-bigtech.png" alt="Визуал проекта BigTech Camp"></article>
+        <article class="project project--workspace"><div class="project__meta"><span>Web-service · UX/UI</span><b>↗</b></div><h3>Workspace</h3><p>Сервис для спокойной командной работы и прозрачного статуса задач.</p><div class="workspace-visual"><img src="assets/project-workspace-a.png" alt="Экран видеонаблюдения Workspace"><img src="assets/project-workspace-b.png" alt="Второй экран Workspace"></div></article>
+        <article class="project project--mars"><div class="project__meta"><span>Лендинг · концепт</span><b>↗</b></div><h3>Mars Meal</h3><p>Сервис доставки еды с космическим характером и яркой графикой.</p><img class="project-visual project-visual--mars" src="assets/project-mars.jpg" alt="Визуал проекта Mars Meal"></article>
+        <article class="project project--anwin"><div class="project__meta"><span>E-commerce · UX</span><b>↗</b></div><h3>ANWIN</h3><p>Каталог, где сложный выбор становится быстрым и понятным.</p><img class="project-visual project-visual--anwin" src="assets/project-anwin.png" alt="Макет сайта ANWIN"></article>
+        <article class="project project--more"><div class="project__meta"><span>Больше работ</span><b>↗</b></div><h3>Полное портфолио</h3><p>Покажу процесс, исследования и ещё больше макетов — напишите мне.</p><a class="button button--light" href="mailto:katun876@gmail.com">Подробнее ↗</a></article>
+      </div>
+      <div class="track-footer"><span class="progress"><i></i></span><div class="filters"><b>Все</b><span>Мобильные</span><span>Веб</span><span>Лендинги</span><span>Системы</span></div></div>
+    </section>
+
+    <section class="about shell section" id="about">
+      <div class="section-heading"><div><small>02 · Обо мне</small><h2>Обо мне <span>и как я работаю</span></h2></div></div>
+      <div class="about-grid">
+        <article class="about-art"><picture><source media="(max-width: 700px)" srcset="assets/about-mobile.png"><img src="assets/about-desktop.png" alt="Иллюстрация о процессе UX/UI-дизайна"></picture><div><span>Product</span><span>Research</span><span>Creativity</span></div></article>
+        <article class="profile-card">
+          <div><small>Профиль</small><h3>UX/UI-дизайнер с 3+ годами опыта. <span>Веду интерфейс через весь цикл: исследование, прототипы, финальные макеты и итерации по продуктовым метрикам после запуска.</span></h3><p>Собираю и развиваю дизайн-системы, проектирую адаптивные сайты и веб-сервисы, руковожу командой дизайнеров. Сильная сторона — скорость без потери качества: быстро перехожу от гипотезы к проверенному решению и довожу его до продакшена.</p></div>
+          <div class="profile-facts"><div><small>Подход</small><b>Исследование → прототип → тест → метрики</b></div><div><small>Сильные стороны</small><b>Дизайн-системы, адаптив, запуски</b></div><div><small>Формат</small><b>Full-time или проектная работа</b></div></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="skills shell" aria-label="Навыки и инструменты">
+      <div><small>Навыки</small><div class="chips"><span>UI-дизайн</span><span>UX-дизайн</span><span>Анализ конкурентов</span><span>Пользовательские сценарии</span><span>Прототипирование</span><span>Дизайн-системы</span><span>Юзабилити-тесты</span><span>Веб-дизайн</span><span>Адаптивный дизайн</span><span>Моушн-дизайн</span><span>Продуктовые метрики</span><span>Управление командой</span></div></div>
+      <div><small>Инструменты</small><div class="chips chips--outline"><span>Figma</span><span>Tilda</span><span>HTML</span><span>CSS</span><span>Claude</span><span>ChatGPT</span><span>Codex</span></div></div>
+    </section>
+
+    <section class="education shell" id="experience">
+      <article class="university"><small>Образование</small><div><h2>МГИМО</h2><p>Московский государственный институт международных отношений</p><em>Коммерция (торговое дело) · высшее · 2020</em></div><div class="chips chips--dark"><span>Цифровой маркетинг</span><span>Бренд-менеджмент</span><span>Реклама</span><span>Управление проектами</span></div></article>
+      <article class="courses"><small>Курсы и программы</small><ul><li><time>2026</time><b>Продуктовый дизайн <span>— Uprock</span></b></li><li><time>2025</time><b>Tilda Pro <span>— Tilda School</span></b></li><li><time>2025</time><b>Superpowered UX/UI <span>— Wannabe</span></b></li><li><time>2024</time><b>UX/UI-дизайнер: профессиональная программа <span>— Contented · Skillfactory</span></b></li><li><time>2017</time><b>Бренд-менеджмент и интегрированные маркетинговые коммуникации <span>— Британская высшая школа дизайна</span></b></li></ul></article>
+    </section>
+
+    <section class="contacts shell section" id="contacts">
+      <div class="section-heading"><div><small>04 · Контакты</small><h2>Контакты</h2></div></div>
+      <div class="contact-grid">
+        <article class="cta"><h2>Давайте сделаем что-то хорошее вместе. <span>Пишите — отвечу в течение дня.</span></h2><div><a class="button button--dark" href="mailto:katun876@gmail.com">Написать на почту ↗</a><a class="button button--light cv-link" href="mailto:katun876@gmail.com?subject=Запрос%20CV">Скачать CV</a></div></article>
+        <article class="contact-list"><a href="mailto:katun876@gmail.com"><span><small>Почта</small><b>katun876@gmail.com</b></span><i>↗</i></a><a href="tel:+79365553626"><span><small>Телефон</small><b>+7 936 555-36-26</b></span><i>↗</i></a><a href="https://t.me/katun876"><span><small>Telegram</small><b>@katun876</b></span><i>↗</i></a><div><span><small>Месторасположение</small><b>г. Москва</b></span></div></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer shell"><span>© 2026 Екатерина — UX/UI-дизайнер</span><a href="#top">Наверх&nbsp; ↑</a></footer>
+  <script src="script.js"></script>
+</body>
+</html>

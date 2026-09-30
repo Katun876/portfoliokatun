@@ -1,8 +1,8 @@
-# Портфолио 
+# Портфолио — Page 13
 
 Автономная адаптивная вёрстка по макетам Figma. Откройте `index.html` в браузере.
 
-Живая версия: https://katun876.github.io/portfoliokatun/
+Живая версия: https://katun-portfolio.agtrixy.chatgpt.site
 
 - Desktop-макет: 1440 px
 - Mobile-макет: 390 px
