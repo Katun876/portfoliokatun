@@ -2,108 +2,233 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Портфолио Екатерины — UX/UI-дизайнера">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Екатерина — UX/UI-дизайнер</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23111111'/%3E%3Cpath d='M32 10l5.5 16.5L54 32l-16.5 5.5L32 54l-5.5-16.5L10 32l16.5-5.5L32 10z' fill='%23F5FF5C'/%3E%3C/svg%3E">
+  <meta name="description" content="Портфолио Екатерины — UX/UI-дизайнера: мобильные приложения, веб-сервисы, лендинги и дизайн-системы.">
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Екатерина — UX/UI-дизайнер">
+  <meta property="og:description" content="Люблю ясную логику, живую графику и быстрые итерации. Работаю системно — и довожу идеи до результата.">
+  <meta property="og:image" content="assets/og.jpg">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%23111'/%3E%3Cpath d='M32 14v36M14 32h36' stroke='%23fff' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-cyrillic-wght-normal.woff2" crossorigin>
+  <link rel="preload" as="image" href="assets/hero.webp" media="(min-width: 701px)">
+  <link rel="preload" as="image" href="assets/hero-mobile.webp" media="(max-width: 700px)">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header shell">
-    <a class="identity" href="#top" aria-label="В начало страницы">
-      <span class="identity__mark">✦</span>
-      <span><b>Екатерина</b><small>UX/UI-дизайнер</small></span>
-    </a>
-    <nav class="nav" aria-label="Основная навигация">
-      <a href="#works">Работы</a><a href="#about">Обо мне</a><a href="#experience">Опыт</a><a href="#contacts">Контакты</a>
-    </nav>
-    <a class="availability" href="mailto:katun876@gmail.com">ϟ&nbsp; Открыта к проектам</a>
-    <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav">Меню&nbsp; ☰</button>
-    <div class="mobile-nav" id="mobile-nav">
-      <a href="#works">Работы</a><a href="#about">Обо мне</a><a href="#experience">Опыт</a><a href="#contacts">Контакты</a>
+  <a class="skip-link" href="#main">Перейти к содержанию</a>
+
+  <header class="site-header" id="top">
+    <div class="shell site-header__inner">
+      <a class="identity" href="#top" aria-label="Екатерина, UX/UI-дизайнер — в начало">
+        <span class="identity__mark" aria-hidden="true">⊹</span>
+        <span class="identity__text"><b>Екатерина</b><small>UX/UI-дизайнер</small></span>
+      </a>
+      <nav class="nav" aria-label="Основная навигация">
+        <a href="#works" data-nav="works">Работы</a>
+        <a href="#about" data-nav="about">Обо мне</a>
+        <a href="#experience" data-nav="experience">Опыт</a>
+        <a href="#contacts" data-nav="contacts">Контакты</a>
+      </nav>
+      <a class="availability" href="mailto:katun876@gmail.com?subject=%D0%9F%D1%80%D0%BE%D0%B5%D0%BA%D1%82"><span aria-hidden="true">ϟ</span> Открыта к проектам</a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav">Меню <span class="burger" aria-hidden="true"><i></i><i></i></span></button>
     </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Мобильная навигация" hidden>
+      <a href="#works">Работы</a>
+      <a href="#about">Обо мне</a>
+      <a href="#experience">Опыт</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
   </header>
 
-  <main id="top">
-    <section class="hero shell">
-      <div class="eyebrow"><span>⊹</span> Привет, я Катя · UX/UI-дизайнер</div>
-      <h1>Люблю ясную логику, живую графику<br class="desktop-only"> и быстрые итерации. <span>Работаю системно<br class="desktop-only"> — и довожу идеи до результата.</span></h1>
-      <div class="hero__actions">
-        <a class="button button--dark" href="#works">Смотреть работы ↓</a>
-        <a class="button button--light cv-link" href="mailto:katun876@gmail.com?subject=Запрос%20CV">Скачать CV</a>
-        <span class="hero__line"></span>
-        <a class="hero__email" href="mailto:katun876@gmail.com">katun876@gmail.com</a>
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero shell" aria-labelledby="hero-title">
+      <div class="hero__tile">
+        <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true">⊹</span> Привет, я Катя · UX/UI-дизайнер</p>
+        <h1 id="hero-title">Люблю ясную логику, живую графику <br class="br-desktop">и&nbsp;быстрые итерации. <span class="muted">Работаю системно <br class="br-desktop">— и&nbsp;довожу идеи до&nbsp;результата.</span></h1>
+        <div class="hero__actions">
+          <a class="button button--dark" href="#works">Смотреть работы <span aria-hidden="true">↓</span></a>
+          <a class="button button--light" href="mailto:katun876@gmail.com?subject=%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20CV"><span class="only-desktop">Скачать CV</span><span class="only-mobile">CV</span></a>
+          <span class="hero__line" aria-hidden="true"></span>
+          <a class="hero__email" href="mailto:katun876@gmail.com">katun876@gmail.com</a>
+        </div>
+        <figure class="hero__art">
+          <picture>
+            <source media="(max-width: 700px)" srcset="assets/hero-mobile.webp">
+            <img src="assets/hero.webp" width="2000" height="1559" alt="Иллюстрация: Катя сидит на ноутбуке среди ярких мазков краски" fetchpriority="high">
+          </picture>
+        </figure>
       </div>
-      <div class="hero__art"><picture><source media="(max-width: 700px)" srcset="assets/hero-mobile.png"><img src="assets/hero.png" alt="Яркая иллюстрация дизайнера за ноутбуком"></picture></div>
     </section>
 
+    <!-- STATS -->
     <section class="stats shell" aria-label="Опыт в цифрах">
-      <article><strong>3+</strong><p>года в продуктовом UX/UI — полный цикл от идеи до итераций после релиза</p></article>
-      <article><strong>30+</strong><p>проектов: мобильные приложения, веб-сервисы, лендинги и конференции</p></article>
-      <article><strong>10+</strong><p>в бизнесе, маркетинге и дизайне: от собственного бренда до продуктовой команды</p></article>
+      <article class="stat reveal"><strong>3+</strong><p>года в продуктовом UX/UI — полный цикл от идеи до итераций после релиза</p></article>
+      <article class="stat reveal"><strong>30+</strong><p>проектов: мобильные приложения, веб-сервисы, лендинги и конференции</p></article>
+      <article class="stat reveal"><strong>10+</strong><p>лет в бизнесе, маркетинге и дизайне: от собственного бренда до продуктовой команды</p></article>
     </section>
 
-    <section class="works shell section" id="works">
+    <!-- WORKS -->
+    <section class="works section" id="works" aria-labelledby="works-title">
+      <div class="shell section-heading">
+        <div>
+          <p class="label">01 · Работы</p>
+          <h2 id="works-title">Проекты, <span class="muted">которыми горжусь</span></h2>
+        </div>
+        <div class="carousel-nav">
+          <span class="carousel-nav__count" aria-live="polite"><b id="current-slide">01</b> / <span id="total-slides">14</span></span>
+          <button class="round-button" type="button" id="prev" aria-label="Предыдущая работа">←</button>
+          <button class="round-button round-button--dark" type="button" id="next" aria-label="Следующая работа">→</button>
+        </div>
+      </div>
+
+      <div class="track-wrap">
+        <ul class="project-track" id="project-track" tabindex="0" aria-label="Проекты — листайте горизонтально">
+          <li class="project" data-tags="mobile"><button class="project__open" type="button" data-src="assets/works/ai.webp"><img src="assets/works/ai.webp" width="880" height="1280" loading="lazy" alt=""><span class="sr-only"><b>AI Studio</b> — Mobile · AI. Нейросеть превращает фото в видео. Тёмный интерфейс, где главное — контент.</span></button></li>
+          <li class="project" data-tags="web"><button class="project__open" type="button" data-src="assets/works/cat.webp"><img src="assets/works/cat.webp" width="880" height="1280" loading="lazy" alt=""><span class="sr-only"><b>Cat House</b> — E-commerce · 8 страниц. Домики-виллы для кошек. Тёплый каталог, где товар продаёт атмосфера.</span></button></li>
+          <li class="project" data-tags="mobile"><button class="project__open" type="button" data-src="assets/works/chawo.webp"><img src="assets/works/chawo.webp" width="880" height="1280" loading="lazy" alt=""><span class="sr-only"><b>ChaWo</b> — Соцсеть · 4 концепта. Лента соцсети в двух стилях — Glass и Editorial, светлая и тёмная.</span></button></li>
+          <li class="project" data-tags="landing"><button class="project__open" type="button" data-src="assets/works/bigtech.webp"><img src="assets/works/bigtech.webp" width="880" height="1280" loading="lazy" alt=""><span class="sr-only"><b>BigTech Camp</b> — Лендинг · 2025. Сайт дизайн-конференции: неон, стекло и расписание дня.</span></button></li>
+          <li class="project" data-tags="mobile landing"><button class="project__open" type="button" data-src="assets/works/wefix.webp"><img src="assets/works/wefix.webp" width="880" height="1280" loading="lazy" alt=""><span class="sr-only"><b>WE FIX</b> — Mobile · Лендинг. Мобильное приложение для мастеров по ремонту техники и лендинг сервиса.</span></button></li>
+          <li class="project" data-tags="web"><button class="project__open" type="button" data-src="assets/works/sportstech.webp"><img src="assets/works/sportstech.webp" width="880" height="1280" loading="lazy" alt=""><span class="sr-only"><b>СпортсTech</b> — Корпоративный сайт · 2025. Сайт и платформа для привлечения IT-специалистов.</span></button></li>
+          <li class="project" data-tags="mobile"><button class="project__open" type="button" data-src="assets/works/designflow.webp"><img src="assets/works/designflow.webp" width="880" height="1280" loading="lazy" alt=""><span class="sr-only"><b>designFlow</b> — Mobile · визиты · файлы. Создание визита, голосовые заметки с расшифровкой и файлы с тегами.</span></button></li>
+          <li class="project" data-tags="web"><button class="project__open" type="button" data-src="assets/works/temply.webp"><img src="assets/works/temply.webp" width="880" height="1280" loading="lazy" alt=""><span class="sr-only"><b>Temply.email</b> — Web-сервис · 2024. B2B-платформа корпоративных рассылок для сотрудников «Газпром нефти».</span></button></li>
+          <li class="project" data-tags="web"><button class="project__open" type="button" data-src="assets/works/mayak.webp"><img src="assets/works/mayak.webp" width="880" height="1280" loading="lazy" alt=""><span class="sr-only"><b>Дом с маяком</b> — Веб-сайт · 2025. Сайт с личным кабинетом: понятная навигация и тёплый визуальный язык.</span></button></li>
+          <li class="project" data-tags="landing system"><button class="project__open" type="button" data-src="assets/works/stom.webp"><img src="assets/works/stom.webp" width="880" height="1280" loading="lazy" alt=""><span class="sr-only"><b>Стом·Диджитал</b> — Style guide · лендинг. Гайдлайн и лендинг вебинара об автоматизации в стоматологии.</span></button></li>
+          <li class="project" data-tags="mobile web"><button class="project__open" type="button" data-src="assets/works/bravo.webp"><img src="assets/works/bravo.webp" width="880" height="1280" loading="lazy" alt=""><span class="sr-only"><b>bravo</b> — Сайт и приложение. Цифровые визитки. Создание первой — за три шага, обмен по QR.</span></button></li>
+          <li class="project" data-tags="system web"><button class="project__open" type="button" data-src="assets/works/anwin.webp"><img src="assets/works/anwin.webp" width="880" height="1280" loading="lazy" alt=""><span class="sr-only"><b>ANWIN</b> — Дизайн-система · 2026. Дизайн-система и новые страницы сайта для агентства недвижимости.</span></button></li>
+          <li class="project" data-tags="web"><button class="project__open" type="button" data-src="assets/works/workspace.webp"><img src="assets/works/workspace.webp" width="880" height="1280" loading="lazy" alt=""><span class="sr-only"><b>Workspace</b> — Web-сервис · 2024. B2B-платформа для офиса. Витрина, склад и рабочие места — в одной панели.</span></button></li>
+          <li class="project project--more" data-tags="all">
+            <div class="project--more__inner">
+              <p class="label label--light">Больше работ</p>
+              <p class="project--more__text">Покажу процесс, исследования и&nbsp;ещё больше макетов — <span>пришлю полное портфолио.</span></p>
+              <a class="button button--white" href="mailto:katun876@gmail.com?subject=%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE">Подробнее <span aria-hidden="true">↗</span></a>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="shell track-footer">
+        <span class="progress" aria-hidden="true"><i></i></span>
+        <div class="filters" role="group" aria-label="Фильтр работ">
+          <button type="button" class="filter is-active" data-filter="all" aria-pressed="true">Все</button>
+          <button type="button" class="filter" data-filter="mobile" aria-pressed="false">Мобильные</button>
+          <button type="button" class="filter" data-filter="web" aria-pressed="false">Веб</button>
+          <button type="button" class="filter" data-filter="landing" aria-pressed="false">Лендинги</button>
+          <button type="button" class="filter" data-filter="system" aria-pressed="false">Системы</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about shell section" id="about" aria-labelledby="about-title">
       <div class="section-heading">
-        <div><small>01 · Работы</small><h2>Проекты, <span>которыми горжусь</span></h2></div>
-        <div class="carousel-nav"><span><b id="current-slide">01</b> / 08</span><button id="prev" aria-label="Предыдущая работа">←</button><button id="next" aria-label="Следующая работа">→</button></div>
+        <div><p class="label">02 · Обо мне</p><h2 id="about-title">Обо мне <span class="muted">и как я работаю</span></h2></div>
       </div>
-      <div class="project-track" id="project-track" tabindex="0">
-        <article class="project project--ai">
-          <div class="project__meta"><span>Mobile · AI</span><b>↗</b></div><h3>AI Studio</h3>
-          <p>Нейросеть превращает фото в видео. Тёмный интерфейс, где главное — контент.</p>
-          <img src="assets/project-ai.png" alt="Экраны мобильного приложения AI Studio">
-        </article>
-        <article class="project project--cat">
-          <div class="project__meta"><span>E-commerce · 8 страниц</span><b>↗</b></div><h3>Cat House</h3>
-          <p>Домики-виллы для кошек. Тёплый каталог, где товар продаёт атмосфера.</p>
-          <img src="assets/project-cat.png" alt="Макет интернет-магазина Cat House">
-        </article>
-        <article class="project project--chawo">
-          <div class="project__meta"><span>Соцсеть · 4 концепта</span><b>↗</b></div><h3>ChaWo</h3>
-          <p>Лента соцсети в двух стилях — Glass и Editorial, светлая и тёмная.</p>
-          <div class="phones"><img src="assets/project-chawo-a.png" alt="Светлый экран ChaWo"><img src="assets/project-chawo-b.png" alt="Тёмный экран ChaWo"></div>
-        </article>
-        <article class="project project--camp"><div class="project__meta"><span>Лендинг · 2025</span><b>↗</b></div><h3>BigTech Camp</h3><p>Карьерный лагерь для тех, кто хочет войти в большую технологическую компанию.</p><img class="project-visual project-visual--bigtech" src="assets/project-bigtech.png" alt="Визуал проекта BigTech Camp"></article>
-        <article class="project project--workspace"><div class="project__meta"><span>Web-service · UX/UI</span><b>↗</b></div><h3>Workspace</h3><p>Сервис для спокойной командной работы и прозрачного статуса задач.</p><div class="workspace-visual"><img src="assets/project-workspace-a.png" alt="Экран видеонаблюдения Workspace"><img src="assets/project-workspace-b.png" alt="Второй экран Workspace"></div></article>
-        <article class="project project--mars"><div class="project__meta"><span>Лендинг · концепт</span><b>↗</b></div><h3>Mars Meal</h3><p>Сервис доставки еды с космическим характером и яркой графикой.</p><img class="project-visual project-visual--mars" src="assets/project-mars.jpg" alt="Визуал проекта Mars Meal"></article>
-        <article class="project project--anwin"><div class="project__meta"><span>E-commerce · UX</span><b>↗</b></div><h3>ANWIN</h3><p>Каталог, где сложный выбор становится быстрым и понятным.</p><img class="project-visual project-visual--anwin" src="assets/project-anwin.png" alt="Макет сайта ANWIN"></article>
-        <article class="project project--more"><div class="project__meta"><span>Больше работ</span><b>↗</b></div><h3>Полное портфолио</h3><p>Покажу процесс, исследования и ещё больше макетов — напишите мне.</p><a class="button button--light" href="mailto:katun876@gmail.com">Подробнее ↗</a></article>
-      </div>
-      <div class="track-footer"><span class="progress"><i></i></span><div class="filters"><b>Все</b><span>Мобильные</span><span>Веб</span><span>Лендинги</span><span>Системы</span></div></div>
-    </section>
-
-    <section class="about shell section" id="about">
-      <div class="section-heading"><div><small>02 · Обо мне</small><h2>Обо мне <span>и как я работаю</span></h2></div></div>
       <div class="about-grid">
-        <article class="about-art"><picture><source media="(max-width: 700px)" srcset="assets/about-mobile.png"><img src="assets/about-desktop.png" alt="Иллюстрация о процессе UX/UI-дизайна"></picture><div><span>Product</span><span>Research</span><span>Creativity</span></div></article>
-        <article class="profile-card">
-          <div><small>Профиль</small><h3>UX/UI-дизайнер с 3+ годами опыта. <span>Веду интерфейс через весь цикл: исследование, прототипы, финальные макеты и итерации по продуктовым метрикам после запуска.</span></h3><p>Собираю и развиваю дизайн-системы, проектирую адаптивные сайты и веб-сервисы, руковожу командой дизайнеров. Сильная сторона — скорость без потери качества: быстро перехожу от гипотезы к проверенному решению и довожу его до продакшена.</p></div>
-          <div class="profile-facts"><div><small>Подход</small><b>Исследование → прототип → тест → метрики</b></div><div><small>Сильные стороны</small><b>Дизайн-системы, адаптив, запуски</b></div><div><small>Формат</small><b>Full-time или проектная работа</b></div></div>
+        <figure class="about-art reveal">
+          <img src="assets/about.webp" width="1100" height="1100" loading="lazy" alt="Иллюстрация «UX/UI» в брызгах краски">
+          <figcaption><span>Product</span><span>Research</span><span>Creativity</span></figcaption>
+        </figure>
+        <article class="profile-card reveal">
+          <div class="profile-card__top">
+            <p class="label">Профиль</p>
+            <h3>UX/UI-дизайнер с 3+ годами опыта. <span class="muted">Веду интерфейс через весь цикл: исследование, прототипы, финальные макеты и&nbsp;итерации по&nbsp;продуктовым метрикам после запуска.</span></h3>
+            <img class="profile-card__art" src="assets/about.webp" width="1100" height="1100" loading="lazy" alt="">
+            <p class="profile-card__text">Собираю и развиваю дизайн-системы, проектирую адаптивные сайты и&nbsp;веб-сервисы, руковожу командой дизайнеров. Сильная сторона — скорость без потери качества: быстро перехожу от&nbsp;гипотезы к&nbsp;проверенному решению и&nbsp;довожу его до&nbsp;продакшена.</p>
+          </div>
+          <dl class="facts">
+            <div><dt>Подход</dt><dd>Исследование → прототип → тест → метрики</dd></div>
+            <div><dt>Сильные стороны</dt><dd>Дизайн-системы, адаптив, запуски</dd></div>
+            <div><dt>Формат</dt><dd>Full-time или проектная работа</dd></div>
+          </dl>
         </article>
       </div>
     </section>
 
-    <section class="skills shell" aria-label="Навыки и инструменты">
-      <div><small>Навыки</small><div class="chips"><span>UI-дизайн</span><span>UX-дизайн</span><span>Анализ конкурентов</span><span>Пользовательские сценарии</span><span>Прототипирование</span><span>Дизайн-системы</span><span>Юзабилити-тесты</span><span>Веб-дизайн</span><span>Адаптивный дизайн</span><span>Моушн-дизайн</span><span>Продуктовые метрики</span><span>Управление командой</span></div></div>
-      <div><small>Инструменты</small><div class="chips chips--outline"><span>Figma</span><span>Tilda</span><span>HTML</span><span>CSS</span><span>Claude</span><span>ChatGPT</span><span>Codex</span></div></div>
+    <!-- SKILLS -->
+    <section class="skills shell reveal" aria-label="Навыки и инструменты">
+      <div>
+        <p class="label">Навыки</p>
+        <ul class="chips">
+          <li>UI-дизайн</li><li>UX-дизайн</li><li>Анализ конкурентов</li><li>Пользовательские сценарии</li><li>Прототипирование</li><li>Дизайн-системы</li><li>Юзабилити-тесты</li><li>Адаптивный дизайн</li><li>Веб-дизайн</li><li>Продуктовые метрики</li><li>Управление командой</li>
+        </ul>
+      </div>
+      <div>
+        <p class="label">Инструменты</p>
+        <ul class="chips chips--outline">
+          <li>Figma</li><li>Tilda</li><li>HTML</li><li>CSS</li><li>Claude</li><li>ChatGPT</li><li>Codex</li>
+        </ul>
+      </div>
     </section>
 
-    <section class="education shell" id="experience">
-      <article class="university"><small>Образование</small><div><h2>МГИМО</h2><p>Московский государственный институт международных отношений</p><em>Коммерция (торговое дело) · высшее · 2020</em></div><div class="chips chips--dark"><span>Цифровой маркетинг</span><span>Бренд-менеджмент</span><span>Реклама</span><span>Управление проектами</span></div></article>
-      <article class="courses"><small>Курсы и программы</small><ul><li><time>2026</time><b>Продуктовый дизайн <span>— Uprock</span></b></li><li><time>2025</time><b>Tilda Pro <span>— Tilda School</span></b></li><li><time>2025</time><b>Superpowered UX/UI <span>— Wannabe</span></b></li><li><time>2024</time><b>UX/UI-дизайнер: профессиональная программа <span>— Contented · Skillfactory</span></b></li><li><time>2017</time><b>Бренд-менеджмент и интегрированные маркетинговые коммуникации <span>— Британская высшая школа дизайна</span></b></li></ul></article>
+    <!-- EDUCATION -->
+    <section class="education shell section" id="experience" aria-label="Образование и курсы">
+      <article class="university reveal">
+        <p class="label label--light">Образование</p>
+        <div class="university__body">
+          <h2>МГИМО</h2>
+          <p>Московский государственный институт международных отношений</p>
+          <p class="university__meta">Коммерция (торговое дело) · высшее · 2020</p>
+        </div>
+        <ul class="chips chips--dark">
+          <li>Цифровой маркетинг</li><li>Бренд-менеджмент</li><li>Реклама</li><li>Управление проектами</li>
+        </ul>
+      </article>
+      <article class="courses reveal">
+        <p class="label">Курсы и программы</p>
+        <ol>
+          <li><time>2026</time><span>Продуктовый дизайн <em>— Uprock</em></span></li>
+          <li><time>2025</time><span>Tilda Pro <em>— Tilda School</em></span></li>
+          <li><time>2025</time><span>Superpowered UX/UI <em>— Wannabe</em></span></li>
+          <li><time>2024</time><span>UX/UI-дизайнер: профессиональная программа <em>— Contented · Skillfactory</em></span></li>
+          <li><time>2017</time><span>Бренд-менеджмент и интегрированные маркетинговые коммуникации <em>— Британская высшая школа дизайна</em></span></li>
+        </ol>
+      </article>
     </section>
 
-    <section class="contacts shell section" id="contacts">
-      <div class="section-heading"><div><small>04 · Контакты</small><h2>Контакты</h2></div></div>
+    <!-- CONTACTS -->
+    <section class="contacts shell section" id="contacts" aria-labelledby="contacts-title">
+      <div class="section-heading">
+        <div><p class="label">04 · Контакты</p><h2 id="contacts-title">Контакты</h2></div>
+      </div>
       <div class="contact-grid">
-        <article class="cta"><h2>Давайте сделаем что-то хорошее вместе. <span>Пишите — отвечу в течение дня.</span></h2><div><a class="button button--dark" href="mailto:katun876@gmail.com">Написать на почту ↗</a><a class="button button--light cv-link" href="mailto:katun876@gmail.com?subject=Запрос%20CV">Скачать CV</a></div></article>
-        <article class="contact-list"><a href="mailto:katun876@gmail.com"><span><small>Почта</small><b>katun876@gmail.com</b></span><i>↗</i></a><a href="tel:+79365553626"><span><small>Телефон</small><b>+7 936 555-36-26</b></span><i>↗</i></a><a href="https://t.me/katun876"><span><small>Telegram</small><b>@katun876</b></span><i>↗</i></a><div><span><small>Месторасположение</small><b>г. Москва</b></span></div></article>
+        <article class="cta reveal">
+          <p class="cta__title">Давайте сделаем что-то хорошее вместе. <span class="muted">Пишите — отвечу в&nbsp;течение дня.</span></p>
+          <div class="cta__bottom">
+            <div class="cta__actions">
+              <a class="button button--dark" href="mailto:katun876@gmail.com">Написать на почту <span aria-hidden="true">↗</span></a>
+              <a class="button button--light" href="mailto:katun876@gmail.com?subject=%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20CV">Скачать CV</a>
+            </div>
+            <ul class="contact-icons" aria-label="Быстрые контакты">
+              <li><a href="mailto:katun876@gmail.com" aria-label="Почта"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/></svg></a></li>
+              <li><a href="tel:+79365553626" aria-label="Телефон"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></svg></a></li>
+              <li><a href="https://t.me/katun876" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 4L3 11l6 2 2 6 3-4 5 4 2-15z"/><path d="M9 13l12-9"/></svg></a></li>
+            </ul>
+          </div>
+        </article>
+        <ul class="contact-list reveal">
+          <li><a href="mailto:katun876@gmail.com"><span><small>Почта</small><b>katun876@gmail.com</b></span><i aria-hidden="true">↗</i></a></li>
+          <li><a href="tel:+79365553626"><span><small>Телефон</small><b>+7 936 555-36-26</b></span><i aria-hidden="true">↗</i></a></li>
+          <li><a href="https://t.me/katun876" target="_blank" rel="noopener"><span><small>Telegram</small><b>@katun876</b></span><i aria-hidden="true">↗</i></a></li>
+          <li><div><span><small>Местоположение</small><b>г. Москва · Remote · Hybrid</b></span></div></li>
+        </ul>
       </div>
     </section>
   </main>
 
-  <footer class="footer shell"><span>© 2026 Екатерина — UX/UI-дизайнер</span><a href="#top">Наверх&nbsp; ↑</a></footer>
-  <script src="script.js"></script>
+  <footer class="footer shell">
+    <span>© 2026 Екатерина — UX/UI-дизайнер</span>
+    <a class="footer__top" href="#top"><span class="only-desktop">Наверх</span> <span class="footer__arrow" aria-hidden="true">↑</span><span class="sr-only only-mobile">Наверх</span></a>
+  </footer>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Проект">
+    <button class="lightbox__close round-button" type="button" aria-label="Закрыть">✕</button>
+    <img alt="">
+    <a class="button button--dark lightbox__cta" href="mailto:katun876@gmail.com?subject=%D0%9A%D0%B5%D0%B9%D1%81">Запросить кейс <span aria-hidden="true">↗</span></a>
+  </dialog>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
